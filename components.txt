@@ -1,0 +1,33 @@
+App
+    Navigation
+        Navbar
+    
+    Routes
+
+        /
+            Home
+
+        /companies
+            CompanyCard
+
+        /companies/:handle
+            Card
+
+        /jobs
+            Card
+
+        /jobs/:handle
+            JobCard
+
+        /users
+            Card
+
+        /users/:handle
+            UserCard
+
+        /signup
+            SignupForm
+
+        /login
+            LoginForm
+        
