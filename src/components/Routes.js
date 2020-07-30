@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from './Home.js';
 import Login from './Login.js';
 import Signup from './Signup.js';
@@ -49,7 +49,7 @@ export default function Routes() {
 
         setIsLoading(false)
     },[userToken, userJobs.jobs])
-    console.log(jobs);
+
     const updateUser = async (username, data) => {
         try {
             const res = await JoblyAPI.request(`users/${username}`, data, 'patch')
@@ -62,8 +62,11 @@ export default function Routes() {
     if (isLoading) {
         return "Loading"
     }
-    return (
-        <Switch>
+
+    if (userToken) {
+
+        return (
+            <Switch>
             <Route exact path="/">
                 <Container maxWidth="xl">
                     <Home userToken={userToken} setToken={token}/>
@@ -105,8 +108,35 @@ export default function Routes() {
             </Route>
 
             <Route path="/">
-                <p>Not Found</p>
+                <Redirect to="/" />
             </Route>
         </Switch>
-    )
+        )
+    }
+
+    else {
+        return (
+            <Switch>
+            <Route exact path="/">
+                <Container maxWidth="xl">
+                    <Home userToken={userToken} setToken={token}/>
+                </Container>
+            </Route>
+
+            <Route exact path="/login">
+                <Login />
+            </Route>
+
+            <Route exact path="/signup">
+                <Container maxWidth="lg">
+                    <Signup />
+                </Container>
+            </Route>
+
+            <Route path="/">
+                <Redirect to="/" />
+            </Route>
+        </Switch>
+        )
+    }
 }

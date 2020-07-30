@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Grid from '@material-ui/core/Grid';
-import JoblySearchBar from './JoblySearchBar';
 import JobCard from './JobCard';
 import { useParams } from 'react-router-dom';
 import JoblyAPI from '../joblyAPI';

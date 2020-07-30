@@ -1,9 +1,8 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Link as RouterLink } from 'react-router-dom';
-import userTokenContext from '../UserTokenContext';
 
 function Home({userToken, setToken}) {
     const useStyles = makeStyles({

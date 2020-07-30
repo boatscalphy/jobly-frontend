@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
@@ -7,7 +7,6 @@ import useInput from '../hooks/useInput';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography'
 import { useHistory } from 'react-router-dom';
-import JoblyApi from '../joblyAPI';
 
 export default function UserProfile(props) {
 
@@ -46,12 +45,13 @@ export default function UserProfile(props) {
     function submitUpdate(e) {
         e.preventDefault();
         props.update(props.user.username, loginForm)
+        resetForm()
         history.push('/');    
     }
     
-    React.useEffect(() => {
-        console.log(props.user.username);
-        updateForm(initialState)
+    useEffect(() => {
+        const populateFormDefault = () => updateForm(initialState);
+        populateFormDefault();
         setIsLoading(false)
     }, [props.user.username])
     if (isLoading) {

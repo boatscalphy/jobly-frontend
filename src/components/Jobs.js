@@ -11,7 +11,6 @@ export default function Jobs(props) {
     const [jobFilter, setJobFilter] = useState([]);
     const [allJobs, setAllJobs] = useState([])
     const [isLoading, setIsLoading] = useState(true);
-    const [test, setTest] = useState([])
 
     useEffect(() => {
         const requestAllJobs = async () => {

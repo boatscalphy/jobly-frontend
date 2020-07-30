@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import NavBar from './components/NavBar.js';
 import Routes from './components/Routes.js';
@@ -11,6 +11,7 @@ function App() {
   const token = (request = null) => {
     setUserToken(request)
   }
+
 
   return (
     <UserTokenContext.Provider value={{userToken, token}}>
