@@ -1,0 +1,9 @@
+/index.html /
+/jobs   /jobs
+/jobs/: /jobs/:id
+/login  /login
+/signup /signup
+/companies  /companies
+/companies/:handle  /companies/:handle
+/profile    /profile
+/*  /
